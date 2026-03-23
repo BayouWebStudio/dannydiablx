@@ -3,6 +3,15 @@
    Premium dark gallery aesthetic
    ============================================ */
 
+/* Network Font */
+@font-face {
+  font-family: 'Network';
+  src: url('fonts/Network.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --purple: #7B2FBE;
   --purple-dark: #4B1680;
@@ -17,7 +26,7 @@
   --bg-card: #1a1424;
   --border: rgba(123, 47, 190, 0.15);
   --border-hover: rgba(168, 85, 247, 0.3);
-  --font-display: 'Metal Mania', cursive;
+  --font-display: 'Network', 'Metal Mania', cursive;
   --font-body: 'Barlow', sans-serif;
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-mono: 'Share Tech Mono', monospace;
