@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking — DannyDiablx | Infernal Garden</title>
+  <meta name="description" content="Book a tattoo session with DannyDiablx at Infernal Garden in Houston, TX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Infernal Garden</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tattoos.html">Tattoos</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="hero-grain"></div>
+    <div class="container">
+      <div class="section-label anim-fade">Contact</div>
+      <h1 class="page-title anim-fade">Book a <span class="text-accent">Session</span></h1>
+      <p class="page-subtitle anim-fade">Every piece begins with a conversation</p>
+    </div>
+  </header>
+
+  <!-- Booking Form -->
+  <section class="section booking-section">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="booking-info anim-fade">
+          <h2>How It Works</h2>
+          <div class="booking-steps">
+            <div class="step">
+              <span class="step-number">01</span>
+              <div>
+                <h4>Reach Out</h4>
+                <p>Fill out the form with your idea, placement, and size. The more detail, the better.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">02</span>
+              <div>
+                <h4>Consultation</h4>
+                <p>We'll discuss your vision, pricing, and timeline. Custom designs take time — great art isn't rushed.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number">03</span>
+              <div>
+                <h4>Create</h4>
+                <p>On session day, we bring your piece to life. Sit back, trust the process, and watch the magic happen.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-details">
+            <h3>Details</h3>
+            <ul>
+              <li><strong>Location:</strong> Houston, TX</li>
+              <li><strong>Styles:</strong> Dark illustrative, blackwork, horror, fantasy</li>
+              <li><strong>Booking lead time:</strong> Varies — reach out early</li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="booking-form anim-fade" action="https://formspree.io/f/placeholder" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="placement">Placement</label>
+            <input type="text" id="placement" name="placement" placeholder="e.g. Forearm, sleeve, back">
+          </div>
+          <div class="form-group">
+            <label for="size">Approximate Size</label>
+            <input type="text" id="size" name="size" placeholder="e.g. 6 inches, half sleeve">
+          </div>
+          <div class="form-group">
+            <label for="description">Describe Your Idea</label>
+            <textarea id="description" name="description" rows="5" required placeholder="Tell me about your vision — themes, references, creatures, mood..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="referral">How Did You Find Me? <span class="optional">(optional)</span></label>
+            <input type="text" id="referral" name="referral" placeholder="Instagram, referral, etc.">
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">Infernal Garden</span>
+          <span class="footer-dash">—</span>
+          <span class="footer-artist">DannyDiablx</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="tattoos.html">Tattoos</a>
+          <a href="booking.html">Booking</a>
+          <a href="testimonials.html">Testimonials</a>
+        </nav>
+        <p class="footer-location">Houston, TX</p>
+        <p class="footer-powered">Powered by <a href="https://eternowebstudio.com" target="_blank" rel="noopener">Eterno Web Studio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

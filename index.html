@@ -1,829 +1,125 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infernal Garden — Danny Diablx | Tattoos · Sculptures · Art</title>
-  <meta name="description" content="Infernal Garden by Danny Diablx — surreal blackwork tattoos, dark sculptures, and original art. Book your session." />
-  <link rel="canonical" href="https://infernalgarden.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Permanent+Marker&family=Share+Tech+Mono&family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --purple:       #7B2FBE;
-      --purple-dark:  #4B1680;
-      --purple-light: #A855F7;
-      --purple-bg:    #6B21A8;
-      --cream:        #F2EDE6;
-      --paper:        #E8E2D9;
-      --ink:          #1a1218;
-      --gray:         #6b6066;
-      --white:        #ffffff;
-      --font-brand:   'Metal Mania', cursive;
-      --font-script:  'Permanent Marker', cursive;
-      --font-mono:    'Share Tech Mono', monospace;
-      --font-body:    'Barlow', sans-serif;
-      --font-cond:    'Barlow Condensed', sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Grain texture overlay on body */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.045;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 16px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(242,237,230,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(123,47,190,0.15);
-    }
-    .nav-logo {
-      font-family: var(--font-script);
-      font-size: 20px;
-      color: var(--purple);
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-    .nav-right {
-      display: flex; gap: 32px; list-style: none; align-items: center;
-    }
-    .nav-right a {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--gray);
-      text-decoration: none;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-right a:hover { color: var(--purple); }
-    .nav-book {
-      font-family: var(--font-mono) !important;
-      background: var(--purple) !important;
-      color: var(--white) !important;
-      padding: 8px 20px;
-      border-radius: 2px;
-    }
-    .nav-book:hover { background: var(--purple-dark) !important; color: var(--white) !important; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      background: var(--purple-bg);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      position: relative; overflow: hidden;
-      padding: 100px 24px 80px;
-    }
-    /* Worn texture on hero */
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
-      z-index: 1;
-    }
-    #hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url('img/profile.jpg');
-      background-size: cover; background-position: center;
-      opacity: 0.12; mix-blend-mode: multiply;
-      z-index: 0;
-    }
-    .hero-corner {
-      position: absolute;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      z-index: 2;
-    }
-    .hero-corner.tl { top: 28px; left: 40px; }
-    .hero-corner.tr { top: 28px; right: 40px; }
-    .hero-corner.bl { bottom: 28px; left: 40px; }
-    .hero-corner.br { bottom: 28px; right: 40px; font-size: 14px; font-weight: 700; }
-    .hero-content { position: relative; z-index: 2; max-width: 900px; }
-    .hero-brand {
-      font-family: var(--font-brand);
-      font-size: clamp(64px, 14vw, 160px);
-      color: var(--white);
-      line-height: 0.9;
-      letter-spacing: 2px;
-      margin-bottom: 32px;
-      text-shadow: 4px 4px 0 rgba(0,0,0,0.3), 0 0 80px rgba(255,255,255,0.1);
-    }
-    .hero-tagline {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 48px;
-    }
-    .hero-services {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 52px;
-    }
-    .hero-service {
-      font-family: var(--font-script);
-      font-size: 18px;
-      color: var(--white);
-      opacity: 0.9;
-    }
-    .hero-service-dot {
-      color: rgba(255,255,255,0.4);
-      margin: 0 6px;
-    }
-    .btn-hero {
-      display: inline-block;
-      background: var(--white);
-      color: var(--purple-bg);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 16px 44px;
-      text-decoration: none;
-      transition: all 0.25s;
-      margin: 0 8px;
-    }
-    .btn-hero:hover { background: var(--ink); color: var(--white); }
-    .btn-hero-outline {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 14px 36px;
-      text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.5);
-      transition: all 0.25s;
-      margin: 0 8px;
-    }
-    .btn-hero-outline:hover { border-color: var(--white); }
-
-    /* ── SECTION COMMON ── */
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 100px 40px; }
-    .section-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 14px;
-      display: block;
-    }
-    .section-title {
-      font-family: var(--font-script);
-      font-size: clamp(40px, 6vw, 72px);
-      color: var(--purple);
-      line-height: 1.05;
-      margin-bottom: 52px;
-    }
-    .section-title.dark { color: var(--ink); }
-
-    /* Purple rule */
-    .rule { height: 2px; background: linear-gradient(90deg, transparent, var(--purple), transparent); margin: 0; }
-
-    /* ── ABOUT ── */
-    #about { background: var(--paper); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center;
-    }
-    .about-img-wrap { position: relative; }
-    .about-img-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: -12px; right: -12px;
-      width: 100%; height: 100%;
-      border: 2px solid var(--purple);
-      opacity: 0.4;
-      z-index: 0;
-    }
-    .about-img {
-      width: 100%; aspect-ratio: 3/4; object-fit: cover;
-      display: block; position: relative; z-index: 1;
-      filter: grayscale(20%) contrast(1.05);
-    }
-    .about-text {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: 16px; line-height: 1.85;
-      color: #3a3040;
-      margin-bottom: 32px;
-    }
-    .about-stats { display: flex; gap: 40px; margin-top: 36px; }
-    .stat-num {
-      font-family: var(--font-brand);
-      font-size: 44px;
-      color: var(--purple);
-      line-height: 1;
-      display: block;
-    }
-    .stat-label {
-      font-family: var(--font-mono);
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--gray);
-    }
-
-    /* ── GALLERY ── */
-    #gallery { background: var(--cream); }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
-    }
-    .gallery-item {
-      position: relative; aspect-ratio: 1/1; overflow: hidden;
-      background: var(--paper);
-    }
-    .gallery-item img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.5s ease, filter 0.4s ease;
-      filter: grayscale(15%);
-    }
-    .gallery-item:hover img { transform: scale(1.07); filter: grayscale(0%); }
-    .gallery-item::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(123,47,190,0.55) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover::after { opacity: 1; }
-
-    /* ── STYLES ── */
-    #styles { background: var(--purple-bg); position: relative; overflow: hidden; }
-    #styles::before {
-      content: '';
-      position: absolute; inset: 0;
-      opacity: 0.06;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-    #styles .section-eyebrow { color: rgba(255,255,255,0.6); }
-    #styles .section-title { color: var(--white); }
-    .styles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
-    .style-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 40px 32px;
-      transition: background 0.3s;
-    }
-    .style-card:hover { background: rgba(255,255,255,0.1); }
-    .style-num {
-      font-family: var(--font-brand);
-      font-size: 52px;
-      color: rgba(255,255,255,0.15);
-      line-height: 1;
-      margin-bottom: 18px;
-    }
-    .style-name {
-      font-family: var(--font-cond);
-      font-size: 20px; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .style-desc {
-      font-family: var(--font-body);
-      font-size: 14px; line-height: 1.7;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* ── SERVICES ── */
-    #services { background: var(--paper); }
-    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
-    .service-block { padding: 36px; background: var(--cream); border-top: 3px solid var(--purple); }
-    .svc-icon { font-size: 36px; margin-bottom: 18px; display: block; }
-    .svc-title {
-      font-family: var(--font-script);
-      font-size: 28px; color: var(--purple);
-      margin-bottom: 12px;
-    }
-    .svc-desc {
-      font-family: var(--font-body);
-      font-size: 14px; color: var(--gray); line-height: 1.7;
-    }
-    .svc-cta {
-      margin-top: 18px;
-      font-family: var(--font-mono);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--purple);
-    }
-
-    /* ── FAQ ── */
-    #faq { background: var(--cream); }
-    .faq-list { max-width: 740px; }
-    .faq-item { border-bottom: 1px solid rgba(123,47,190,0.2); }
-    .faq-question {
-      width: 100%; background: none; border: none;
-      text-align: left; padding: 22px 0;
-      color: var(--ink);
-      font-family: var(--font-cond);
-      font-size: 18px; font-weight: 600;
-      cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
-    .faq-icon {
-      flex-shrink: 0;
-      width: 22px; height: 22px;
-      border: 1.5px solid var(--purple); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: var(--purple);
-      transition: transform 0.3s, background 0.3s, color 0.3s;
-    }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--purple); color: white; }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-answer p { font-family: var(--font-body); font-size: 15px; color: var(--gray); line-height: 1.7; padding-bottom: 22px; }
-    .faq-item.open .faq-answer { max-height: 400px; }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--paper); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
-    .testimonial {
-      background: var(--cream);
-      border: 1px solid rgba(123,47,190,0.15);
-      padding: 40px;
-      position: relative;
-    }
-    .testimonial::before {
-      content: '"';
-      font-family: var(--font-brand);
-      font-size: 90px; color: var(--purple); opacity: 0.15;
-      position: absolute; top: 8px; left: 20px; line-height: 1;
-    }
-    .testimonial-text {
-      font-family: var(--font-body); font-style: italic;
-      font-size: 15px; color: #3a3040; line-height: 1.8;
-      position: relative; z-index: 1; margin-top: 16px;
-    }
-    .testimonial-author {
-      margin-top: 20px;
-      font-family: var(--font-mono);
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--purple);
-    }
-
-    /* ── BOOKING ── */
-    #booking { background: var(--purple-bg); position: relative; overflow: hidden; }
-    #booking::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('img/photo_01.jpg') center/cover;
-      opacity: 0.08; mix-blend-mode: luminosity;
-    }
-    .booking-wrap {
-      position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto; padding: 100px 40px;
-      display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start;
-    }
-    .booking-title {
-      font-family: var(--font-script);
-      font-size: clamp(44px,7vw,80px);
-      color: var(--white); line-height: 1; margin-bottom: 20px;
-    }
-    .booking-sub {
-      font-family: var(--font-body); font-style: italic;
-      font-size: 15px; color: rgba(255,255,255,0.75);
-      line-height: 1.7; margin-bottom: 32px;
-    }
-    .btn-ig {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.45);
-      padding: 12px 24px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-ig:hover { border-color: white; background: rgba(255,255,255,0.1); }
-    .booking-form { display: flex; flex-direction: column; gap: 12px; }
-    .booking-form input,
-    .booking-form select,
-    .booking-form textarea {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 15px; padding: 14px 18px; outline: none; width: 100%;
-      transition: border-color 0.2s;
-    }
-    .booking-form input::placeholder,
-    .booking-form textarea::placeholder { color: rgba(255,255,255,0.4); }
-    .booking-form input:focus, .booking-form textarea:focus { border-color: rgba(255,255,255,0.7); }
-    .booking-form textarea { resize: none; min-height: 110px; }
-    .booking-form select option { background: #3d1660; }
-    .booking-submit {
-      background: var(--white); color: var(--purple-bg);
-      border: none; font-family: var(--font-mono);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      padding: 16px; cursor: pointer;
-      transition: background 0.2s, color 0.2s; width: 100%;
-    }
-    .booking-submit:hover { background: var(--ink); color: var(--white); }
-
-    /* ── LOCATION ── */
-    #location { background: var(--cream); }
-    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .loc-item { padding: 22px 0; border-bottom: 1px solid rgba(123,47,190,0.15); }
-    .loc-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--purple); margin-bottom: 6px; }
-    .loc-value { font-family: var(--font-body); font-size: 16px; color: var(--ink); }
-    .loc-box {
-      background: var(--paper);
-      border: 1px solid rgba(123,47,190,0.15);
-      height: 320px; display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-script); font-size: 28px; color: rgba(123,47,190,0.35);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 48px 40px; text-align: center;
-    }
-    .footer-logo { font-family: var(--font-script); font-size: 32px; color: var(--purple-light); margin-bottom: 20px; display: block; }
-    .footer-links { display: flex; justify-content: center; gap: 28px; margin-bottom: 28px; }
-    .footer-links a { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--purple-light); }
-    .footer-copy { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.2); }
-    .footer-copy a { color: rgba(255,255,255,0.15); text-decoration: none; }
-
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .nav-right { display: none; }
-      .section-inner { padding: 72px 20px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-img-wrap::after { display: none; }
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
-      .styles-grid, .services-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .booking-wrap { grid-template-columns: 1fr; gap: 40px; }
-      .location-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-corner.tr, .hero-corner.br { right: 20px; }
-      .hero-corner.tl, .hero-corner.bl { left: 20px; }
-    }
-  
-    /* === LIGHTBOX === */
-    .lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.97);align-items:center;justify-content:center}
-    .lightbox.active{display:flex}
-    .lightbox img{max-width:96vw;max-height:96vh;object-fit:contain;user-select:none;-webkit-user-select:none;pointer-events:none}
-    .lb-close{position:absolute;top:16px;right:16px;width:44px;height:44px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;-webkit-tap-highlight-color:transparent;transition:border-color 0.3s}
-    .lb-close:hover{border-color:var(--gold,#C9A84C);color:var(--gold,#C9A84C)}
-    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);border-radius:50%;color:#fff;width:48px;height:48px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;-webkit-tap-highlight-color:transparent;transition:all 0.3s}
-    .lb-nav:hover{border-color:var(--gold,#C9A84C);color:var(--gold,#C9A84C)}
-    .lb-prev{left:12px}
-    .lb-next{right:12px}
-    @media(max-width:600px){.lb-nav{width:40px;height:40px;font-size:20px}.lb-prev{left:8px}.lb-next{right:8px}.lb-close{top:12px;right:12px;width:40px;height:40px}}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infernal Garden — DannyDiablx | Tattoos · Sculptures · Art</title>
+  <meta name="description" content="Infernal Garden by DannyDiablx — dark illustrative tattoos, sculptures & art in Houston, TX. Custom blackwork, horror, fantasy & gaming culture aesthetic.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">Infernal Garden</a>
-  <ul class="nav-right">
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#styles">Styles</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#booking" class="nav-book">Book</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-corner tl">2025</div>
-  <div class="hero-corner tr">Infernal Garden</div>
-  <div class="hero-corner bl">Guide Lines</div>
-  <div class="hero-corner br">01</div>
-  <div class="hero-content">
-    <h1 class="hero-brand">DannyDiablx</h1>
-    <p class="hero-tagline">Est. 2025 &nbsp;·&nbsp; Houston, TX</p>
-    <div class="hero-services">
-      <span class="hero-service">Tattoos</span>
-      <span class="hero-service-dot">×</span>
-      <span class="hero-service">Sculptures</span>
-      <span class="hero-service-dot">×</span>
-      <span class="hero-service">Art</span>
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Infernal Garden</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tattoos.html">Tattoos</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
     </div>
-    <a href="#booking" class="btn-hero">Book a Session</a>
-    <a href="#gallery" class="btn-hero-outline">View Work</a>
-  </div>
-</section>
+  </nav>
 
-  <!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal">
-        <img class="about-img" src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/profile.jpg" alt="Danny Diablx" />
-      </div>
-      <div class="reveal">
-        <span class="section-eyebrow">About the Artist</span>
-        <h2 class="section-title dark">DannyDiablx</h2>
-        <div class="about-text">Bienvenido a Infernal Garden, un metaverso exclusivo donde la piel se convierte en galería viviente. Cada pieza es una obra de autor única que transporta criaturas surrealistas, plantas exóticas, diablillos traviesos y diosas demoniacas desde mi universo artístico hacia la realidad.
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="img/gallery_09.jpg" alt="Infernal Garden artwork" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Infernal<br>Garden</h1>
+      <p class="hero-subtitle">DannyDiablx</p>
+      <p class="hero-tagline">Tattoos · Sculptures · Art</p>
+      <p class="hero-location">Houston, TX</p>
+      <a href="booking.html" class="btn btn-primary">Book a Session</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
 
-Forjado con fuego y barro, este portal entre mundos ofrece diseños de colección que capturan la esencia del lifestyle oscuro y la subcultura del tatuaje.</div>
-        <div class="about-stats">
-          <div><span class="stat-num">10+</span><span class="stat-label">Years</span></div>
-          <div><span class="stat-num">500+</span><span class="stat-label">Pieces</span></div>
-          <div><span class="stat-num">3</span><span class="stat-label">Disciplines</span></div>
+  <!-- About Preview -->
+  <section class="section about-preview" id="about">
+    <div class="container">
+      <div class="section-label anim-fade">About the Artist</div>
+      <div class="about-preview-grid">
+        <div class="about-preview-text anim-fade">
+          <h2>Bienvenido a<br><span class="text-accent">Infernal Garden</span></h2>
+          <p>Un metaverso exclusivo donde la piel se convierte en galería viviente. Cada pieza es una obra de autor única que transporta criaturas surrealistas, plantas exóticas, diablillos traviesos y diosas demoniacas desde mi universo artístico hacia la realidad.</p>
+          <a href="about.html" class="btn btn-outline">Read More</a>
+        </div>
+        <div class="about-preview-image anim-fade">
+          <div class="img-frame">
+            <img src="img/profile.jpg" alt="DannyDiablx — tattoo artist" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- GALLERY -->
-<section id="gallery">
-  <div class="section-inner">
-    <span class="section-eyebrow">Portfolio</span>
-    <h2 class="section-title reveal">The Work</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item" data-img="img/photo_01.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_01.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_02.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_02.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_03.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_03.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_04.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_04.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_05.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_05.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_06.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_06.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/photo_07.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/photo_07.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/IMG_2290.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/IMG_2290.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.53.43_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.53.43_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.53.56_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.53.56_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.54.14_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.54.14_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.54.26_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.54.26_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.54.45_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.54.45_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
-        <div class="gallery-item" data-img="img/Screenshot_2026-03-09_at_10.55.06_AM.jpg"><img src="https://raw.githubusercontent.com/BayouWebStudio/bayouwebstudio.github.io/main/dannydiablx/img/Screenshot_2026-03-09_at_10.55.06_AM.jpg" alt="Gallery photo" loading="lazy" onclick="openLightbox(this.src)" /></div>
+  <!-- Gallery Preview -->
+  <section class="section gallery-preview">
+    <div class="container">
+      <div class="section-label anim-fade">Selected Works</div>
+      <h2 class="section-title anim-fade">From the <span class="text-accent">Garden</span></h2>
+      <div class="gallery-grid gallery-grid--preview">
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_01.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_02.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_03.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_04.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_05.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
+        <a href="tattoos.html" class="gallery-item anim-fade"><img src="img/gallery_06.jpg" alt="Tattoo by DannyDiablx" loading="lazy"></a>
       </div>
-  </div>
-</section>
-
-  <!-- STYLES -->
-<section id="styles">
-  <div class="section-inner">
-    <span class="section-eyebrow">Specialties</span>
-    <h2 class="section-title reveal">What I Do</h2>
-    <div class="styles-grid">
-      <div class="style-card reveal">
-        <div class="style-num">01</div>
-        <div class="style-name">Surreal Blackwork</div>
-        <p class="style-desc">Bold black lines and shading creating dreamlike symbolic imagery — otherworldly creatures and surreal landscapes brought to skin.</p>
-      </div>
-      <div class="style-card reveal">
-        <div class="style-num">02</div>
-        <div class="style-name">Dark Art</div>
-        <p class="style-desc">Macabre and unsettling imagery with occult or spiritual undertones. Each piece is a window into another dimension.</p>
-      </div>
-      <div class="style-card reveal">
-        <div class="style-num">03</div>
-        <div class="style-name">Sketch Style</div>
-        <p class="style-desc">Freehand sketches with loose lines, unfinished edges, and a raw aesthetic that captures the energy of live creation.</p>
+      <div class="text-center anim-fade" style="margin-top:2.5rem;">
+        <a href="tattoos.html" class="btn btn-outline">View All Work</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- SERVICES -->
-<section id="services">
-  <div class="section-inner">
-    <span class="section-eyebrow">Offerings</span>
-    <h2 class="section-title reveal">Services</h2>
-    <div class="services-grid">
-      <div class="service-block reveal">
-        <span class="svc-icon">🩸</span>
-        <div class="svc-title">Tattoos</div>
-        <p class="svc-desc">Custom designs rooted in surreal blackwork and dark art. Every piece is one-of-a-kind, built around your story and vision.</p>
-        <div class="svc-cta">Book a Consult →</div>
-      </div>
-      <div class="service-block reveal">
-        <span class="svc-icon">🗿</span>
-        <div class="svc-title">Sculptures</div>
-        <p class="svc-desc">Hand-crafted sculptures from clay, resin, and mixed media. Otherworldly figures from the Infernal Garden universe.</p>
-        <div class="svc-cta">Commission Available</div>
-      </div>
-      <div class="service-block reveal">
-        <span class="svc-icon">🎨</span>
-        <div class="svc-title">Art</div>
-        <p class="svc-desc">Original artwork — prints, canvases, and digital pieces. Collector editions and custom commissions on request.</p>
-        <div class="svc-cta">Inquire Below</div>
+  <!-- Booking CTA -->
+  <section class="section cta-section">
+    <div class="cta-grain"></div>
+    <div class="container text-center">
+      <div class="section-label anim-fade">Ready?</div>
+      <h2 class="section-title anim-fade">Bring Your Vision<br>to <span class="text-accent">Life</span></h2>
+      <p class="cta-text anim-fade">Every piece begins with a conversation. Let's create something that lives on your skin forever.</p>
+      <a href="booking.html" class="btn btn-primary anim-fade">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">Infernal Garden</span>
+          <span class="footer-dash">—</span>
+          <span class="footer-artist">DannyDiablx</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="tattoos.html">Tattoos</a>
+          <a href="booking.html">Booking</a>
+          <a href="testimonials.html">Testimonials</a>
+        </nav>
+        <p class="footer-location">Houston, TX</p>
+        <p class="footer-powered">Powered by <a href="https://eternowebstudio.com" target="_blank" rel="noopener">Eterno Web Studio</a></p>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-  <!-- BOOKING -->
-<section id="booking">
-  <div class="booking-wrap">
-    <div>
-      <span class="section-eyebrow" style="color:rgba(255,255,255,0.55)">Ready?</span>
-      <h2 class="booking-title">Book Your<br>Session</h2>
-      <p class="booking-sub">Fill out the form and I'll get back to you within 48 hours. All sessions require a deposit to hold your date.</p>
-      <a href="https://www.instagram.com/dannydiablx/" target="_blank" class="btn-ig">@dannydiablx on IG →</a>
-    </div>
-    <form class="booking-form" onsubmit="return handleBooking(event)">
-      <input type="text" name="name" placeholder="Your Name *" required />
-      <input type="email" name="email" placeholder="Email Address *" required />
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp" />
-      <select name="service">
-        <option value="" disabled selected>Service Type</option>
-        <option value="tattoo">Tattoo</option>
-        <option value="sculpture">Sculpture Commission</option>
-        <option value="art">Art / Print</option>
-        <option value="other">Other</option>
-      </select>
-      <textarea name="message" placeholder="Tell me about your idea — size, placement, style..."></textarea>
-      <button type="submit" class="booking-submit">Send Request</button>
-    </form>
-  </div>
-</section>
-
-  <!-- LOCATION -->
-<section id="location">
-  <div class="section-inner">
-    <span class="section-eyebrow">Find Me</span>
-    <h2 class="section-title reveal">Location</h2>
-    <div class="location-grid">
-      <div>
-        <div class="loc-item"><span class="loc-label">Studio</span><span class="loc-value">Infernal Garden Studio</span></div>
-        <div class="loc-item"><span class="loc-label">Instagram</span><span class="loc-value"><a href="https://www.instagram.com/dannydiablx/" target="_blank" style="color:var(--purple);text-decoration:none;">@dannydiablx</a></span></div>
-        <div class="loc-item"><span class="loc-label">Hours</span><span class="loc-value">By Appointment Only</span></div>
-        <div class="loc-item"><span class="loc-label">Email</span><span class="loc-value">dannydiablx@gmail.com</span></div>
-      </div>
-      <div class="loc-box">Infernal Garden 🌿</div>
-    </div>
-  </div>
-</section>
-
-  <!-- hidden section for dashboard compat -->
-<section id="photo-gallery" style="display:none;">
-  <div class="section-inner"><div class="gallery-grid"></div></div>
-</section>
-
-  <!-- FAQ -->
-<section id="faq">
-  <div class="section-inner">
-    <span class="section-eyebrow">FAQ</span>
-    <h2 class="section-title reveal">Common Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">¿Cómo agendo mi cita? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>Llena el formulario de reserva con tu idea, tamaño y zona del cuerpo. Te contactaremos en 24–48 horas para confirmar disponibilidad.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Haces diseños personalizados? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>Sí, todos los diseños de Infernal Garden son personalizados y únicos. Nunca repetimos un diseño — cada pieza es una obra de autor.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Cuánto cuesta un tatuaje? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>El precio depende del tamaño, complejidad y tiempo de sesión. Contacta para un presupuesto personalizado. Se requiere depósito para reservar.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Haces envíos de esculturas y arte? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>Sí, enviamos internacionalmente. Todas las piezas van empacadas con cuidado y aseguradas. Tiempos de envío varían por destino.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-inner">
-    <span class="section-eyebrow">Clients</span>
-    <h2 class="section-title reveal">What They Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial reveal">
-        <div class="testimonial-text">"Danny creó algo completamente único para mí. El diseño capturó exactamente lo que tenía en mente — y superó todas mis expectativas."</div>
-        <div class="testimonial-author">— Cliente Satisfecho</div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="testimonial-text">"El nivel de detalle en su trabajo es increíble. No solo es un tatuador — es un artista que vive y respira cada pieza que crea."</div>
-        <div class="testimonial-author">— Coleccionista de Arte</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-
-
-<div class="rule"></div>
-
-
-
-
-
-<div class="rule"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">Infernal Garden</span>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/dannydiablx/" target="_blank">Instagram</a>
-    <a href="#booking">Book Now</a>
-    <a href="#gallery">Gallery</a>
-  </div>
-  <p class="footer-copy">© 2025 Danny Diablx · Infernal Garden · All rights reserved ·
-    <a href="/dannydiablx/privacy.html">Privacy</a> ·
-    <a href="https://getminted.ai" target="_blank">Powered by GetMinted</a>
-  </p>
-</footer>
-
-<script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-
-  function handleBooking(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.booking-submit');
-    btn.textContent = "Sent! I'll be in touch soon 🌿";
-    btn.style.background = 'rgba(255,255,255,0.15)';
-    btn.style.color = 'white';
-    btn.disabled = true;
-    return false;
-  }
-<\/script>
-
-  <div class="lightbox" id="lightbox">
-    <button class="lb-close" onclick="closeLB()">&times;</button>
-    <button class="lb-nav lb-prev" onclick="navLB(-1)">&#8249;</button>
-    <img id="lb-img" src="" alt="Gallery image">
-    <button class="lb-nav lb-next" onclick="navLB(1)">&#8250;</button>
-  </div>
-<script>
-(function(){
-  var items=Array.from(document.querySelectorAll('.gallery-item,.g-item'));
-  var lb=document.getElementById('lightbox');
-  if(!lb||!items.length)return;
-  var lbImg=document.getElementById('lb-img'),idx=0;
-  items.forEach(function(el,i){
-    el.style.cursor='pointer';
-    el.addEventListener('click',function(e){e.preventDefault();idx=i;lbImg.src=el.querySelector('img').src;lb.classList.add('active');document.body.style.overflow='hidden'});
-  });
-  window.closeLB=function(){lb.classList.remove('active');document.body.style.overflow=''};
-  window.navLB=function(d){idx=(idx+d+items.length)%items.length;lbImg.src=items[idx].querySelector('img').src};
-  lb.addEventListener('click',function(e){if(e.target===lb)closeLB()});
-  document.addEventListener('keydown',function(e){if(!lb.classList.contains('active'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')navLB(-1);if(e.key==='ArrowRight')navLB(1)});
-  var tx=0;
-  lb.addEventListener('touchstart',function(e){tx=e.changedTouches[0].screenX},{passive:true});
-  lb.addEventListener('touchend',function(e){var d=tx-e.changedTouches[0].screenX;if(Math.abs(d)>50)navLB(d>0?1:-1)},{passive:true});
-})();
-</script>
+  <script src="main.js"></script>
 </body>
 </html>
