@@ -45,10 +45,57 @@
         <div class="empty-icon">✦</div>
         <h2>Be the First to Share<br>Your Experience</h2>
         <p>Got ink from Infernal Garden? We'd love to hear your story. Your words help others discover the portal between worlds.</p>
-        <a href="booking.html" class="btn btn-outline">Book Your Piece</a>
       </div>
     </div>
   </section>
+
+  <!-- Submit Review -->
+  <section class="section">
+    <div class="container" style="max-width:600px">
+      <div class="section-label anim-fade">Your Voice</div>
+      <h2 class="anim-fade" style="margin-bottom:2rem">Share Your Experience</h2>
+      <form class="booking-form anim-fade" onsubmit="submitTestimonial(event)">
+        <div class="form-group">
+          <label for="t-name">Your Name</label>
+          <input type="text" id="t-name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="t-body">Your Experience</label>
+          <textarea id="t-body" name="body" rows="5" required placeholder="Tell us about your tattoo experience..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Submit Review</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  async function submitTestimonial(e) {
+    e.preventDefault();
+    var btn = e.target.querySelector('button[type="submit"]');
+    var origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      var name = document.getElementById('t-name').value.trim();
+      var body = document.getElementById('t-body').value.trim();
+      var rating = 5;
+      if (!name || !body) { alert('Please fill in your name and review.'); btn.disabled = false; btn.textContent = origText; return; }
+      var res = await fetch('https://curious-lemming-262.convex.site/api/testimonials/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: 'dannydiablx', name: name, rating: rating, reviewText: body })
+      });
+      if (!res.ok) throw new Error('Network error');
+      e.target.reset();
+      btn.textContent = '✓ Thank you!';
+      setTimeout(function() { btn.textContent = origText; btn.disabled = false; }, 3000);
+    } catch(err) {
+      alert('Something went wrong. Please try again.');
+      btn.textContent = origText;
+      btn.disabled = false;
+    }
+  }
+  </script>
 
   <!-- Footer -->
   <footer class="footer">
