@@ -6,7 +6,7 @@
 /* Network Font */
 @font-face {
   font-family: 'Network';
-  src: url('fonts/Network.ttf') format('truetype');
+  src: url('https://infernalgarden.com/fonts/Network.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -669,8 +669,8 @@ ul { list-style: none; }
    ANIMATIONS
    ============================================ */
 .anim-fade {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .anim-fade.visible {
